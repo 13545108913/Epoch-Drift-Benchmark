@@ -10,8 +10,8 @@ import playwright.sync_api
 
 from browsergym.core.task import AbstractBrowserTask
 
-from instance import MyBenchmarkInstance
-from drift import DriftInjector
+from .instance import MyBenchmarkInstance
+from .drift import DriftInjector
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +49,7 @@ class GenericMyBenchmarkTask(AbstractBrowserTask):
         task_id: Optional[int] = None,
         intent_template_id: Optional[int] = None,
         site_version: str = "v1",
-        with_drift: bool = True,
+        with_drift: bool = False,
         with_na_hint: bool = False,
         with_homepage_hint: bool = False,
     ) -> None:
@@ -80,7 +80,10 @@ class GenericMyBenchmarkTask(AbstractBrowserTask):
         # import webarena
         # all_configs_str = importlib.resources.files(webarena).joinpath("test.raw.json").read_text()
 
-        with open("test.raw.json", "r", encoding="utf-8") as f:
+        import os
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        json_file_path = os.path.join(current_dir, 'test.raw.json')
+        with open(json_file_path, "r", encoding="utf-8") as f:
             all_configs_str = f.read()
 
         # substitute URLs
