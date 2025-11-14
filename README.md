@@ -1,4 +1,5 @@
 # Epoch-Drift-Benchmark
+
 ## 安装库：
 ```bash
 pip install browsergym  # (recommended) everything below
@@ -85,4 +86,9 @@ $env:HOMEPAGE="http://localhost:4399"
 
 $env:WA_GITLAB_V1="http://localhost:8023"
 $env:WA_GITLAB_V2="http://localhost:8023"
+```
+
+## 运行方式
+```bash
+python run_demo.py --task_name myBenchmark.419
 ```
