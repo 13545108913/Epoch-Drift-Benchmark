@@ -1,16 +1,10 @@
-## Task: Presents the monthly count of successful orders {{period}} in MM:COUNT format
-### Example 1 (108): Presents the monthly count of successful orders 01/2023-05/2023 in MM:COUNT format
-Navigated to the REPORTS section to access order reporting functionality for monthly breakdown.
-```click("339")```
-Clicked the "Orders" report link under the Sales section to access order statistics.
-```click("383")```
-Changed the report period from "Day" to "Month" to prepare for generating monthly order counts.
-```select_option("749", "Month")```
-Set the date range from January 1, 2023 to May 31, 2023 in the filter form to analyze data for that time period.
-```fill("757", "01/01/2023")```
-Set the "To" date to 05/31/2023 to complete the date range for the report.
-```fill("764", "05/31/2023")```
-Clicked the "Show Report" button to generate the monthly order counts report for January through May 2023.
-```click("714")```
-Extracted monthly order data from the generated report and formatted it as MM:COUNT pairs.
-```send_msg_to_user("Monthly count of successful orders 01/2023-05/2023:\n01:12\n02:7\n03:5\n04:10\n05:8")```
+## Task: Set my gitlab status as {{status}}.
+### Example 1 (419): Set my gitlab status as Enjoying life.
+Clicked the user profile link to access profile settings for updating GitLab status.
+```click("201")```
+Clicked the "Set status" button to open the status setting interface.
+```click("211")```
+Filled the "What's your status?" textbox with "Enjoying life" to set the user status.
+```fill("919", "Enjoying life")```
+Clicked the "Set status" button to save the "Enjoying life" status.
+```click("972")```
