@@ -91,4 +91,5 @@ $env:WA_GITLAB_V2="http://localhost:8023"
 ## 运行方式
 ```bash
 python run_demo.py --task_name myBenchmark.419
+python run_online.py --experiment asi --website gitlab --task_ids 419-419
 ```
