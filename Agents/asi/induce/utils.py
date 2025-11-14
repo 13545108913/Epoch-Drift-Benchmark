@@ -61,10 +61,10 @@ def get_result_dirs(
     template_id: str = None, config_dir: str = None,
 ) -> str:
     if template_id is None:
-        if result_id_list is None: # add all webarena.* under `results_dir`
-            result_dir_list = [os.path.join(results_dir) for d in os.listdir(results_dir) if d.startswith("webarena.")]
+        if result_id_list is None: # add all myBenchmark.* under `results_dir`
+            result_dir_list = [os.path.join(results_dir) for d in os.listdir(results_dir) if d.startswith("myBenchmark.")]
         else:
-            result_dir_list = [f"webarena.{rid}" for rid in result_id_list]
+            result_dir_list = [f"myBenchmark.{rid}" for rid in result_id_list]
             result_dir_list = [rd for rd in result_dir_list if rd in os.listdir(results_dir)]
             result_dir_list = [os.path.join(results_dir, rd) for rd in result_dir_list]
     else: # find config files of template_id
@@ -75,7 +75,7 @@ def get_result_dirs(
         ]
         result_dir_list = []
         for cid in config_ids:
-            rdir = os.path.join(results_dir, f"webarena.{cid}")
+            rdir = os.path.join(results_dir, f"myBenchmark.{cid}")
             if if_add_result(rdir):
                 result_dir_list.append(rdir)
         # if len(result_dir_list) < 1: return []

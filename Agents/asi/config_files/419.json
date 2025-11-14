@@ -21,7 +21,7 @@
     "reference_url": "",
     "program_html": [
       {
-        "url": "http://localhost:8023/root",
+        "url": "http://localhost:8023/byteblaze",
         "locator": "document.querySelector('.cover-status').lastChild.textContent",
         "required_contents": {
           "exact_match": "Enjoying life"
