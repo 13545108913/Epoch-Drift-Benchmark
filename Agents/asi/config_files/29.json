@@ -1,31 +1,29 @@
 {
   "sites": [
-    "reddit"
+    "gitlab"
   ],
   "task_id": 29,
   "require_login": true,
-  "storage_state": "./.auth/reddit_state.json",
-  "start_url": "http://localhost:9999",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the {{forum}} forum.",
+  "intent_template": "Show me the command to clone {{repo}} with SSH.",
   "instantiation_dict": {
-    "forum": "DIY"
+    "repo": "metaseq"
   },
-  "intent": "Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the DIY forum.",
+  "intent": "Show me the command to clone metaseq with SSH.",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "must_include": [
-        "1"
-      ]
+      "exact_match": "git clone ssh://git@metis.lti.cs.cmu.edu:2222/root/metaseq.git"
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "1"
+    "reference_answer_raw_annotation": "git clone ssh://git@metis.lti.cs.cmu.edu:2222/root/metaseq.git"
   },
-  "intent_template_id": 33
+  "intent_template_id": 329
 }

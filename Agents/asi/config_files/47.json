@@ -1,32 +1,26 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 47,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com",
   "geolocation": null,
-  "intent_template": "Today is 6/12/2023. Tell me how many fulfilled orders I have {{period}}, and the total amount of money I spent.",
+  "intent_template": "List all opened issues {{description}}",
   "instantiation_dict": {
-    "period": "over the past month"
+    "description": "that report bugs"
   },
-  "intent": "Today is 6/12/2023. Tell me how many fulfilled orders I have over the past month, and the total amount of money I spent.",
+  "intent": "List all opened issues that report bugs",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "0 order",
-        "$0 total spend"
-      ]
-    },
-    "reference_url": "",
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/issues/?label_name%5B%5D=bug",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "0 order, $0 total spend"
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 197
+  "intent_template_id": 299
 }

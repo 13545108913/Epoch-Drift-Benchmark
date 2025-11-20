@@ -1,32 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 86,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "From my stay at {{hotel}}, what's the estimated driving time to reach {{place}}?",
+  "intent_template": "Set up a new, empty repository with the name {{project_name}}?",
   "instantiation_dict": {
-    "hotel": "La Quinta Inn near the airport",
-    "place": "Upitt"
+    "project_name": "chatgpt_plugin"
   },
-  "intent": "From my stay at La Quinta Inn near the airport, what's the estimated driving time to reach Upitt?",
+  "intent": "Set up a new, empty repository with the name chatgpt_plugin?",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "29 minutes"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "29 minutes"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/chatgpt_plugin",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "chatgpt_plugin"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 64
+  "intent_template_id": 292
 }

@@ -1,33 +1,33 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 81,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the duration required to first walk from {{place_A}} to {{place_B}}, and then drive to {{place_C}}?",
+  "intent_template": "set the homepage URL on my GitLab profile to {{url}}",
   "instantiation_dict": {
-    "place_A": "Univ of Pittsburgh",
-    "place_B": "starbucks on Craig Street",
-    "place_C": "Pittsburgh International Airport"
+    "url": "https://egg.tart.com"
   },
-  "intent": "What is the duration required to first walk from Univ of Pittsburgh to starbucks on Craig Street, and then drive to Pittsburgh International Airport?",
+  "intent": "set the homepage URL on my GitLab profile to https://egg.tart.com",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "49 min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "49 min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze",
+        "locator": "document.querySelector('.profile-header [itemprop=\"url\"]').outerText",
+        "required_contents": {
+          "exact_match": "egg.tart.com"
+        }
+      }
+    ]
   },
-  "intent_template_id": 72
+  "intent_template_id": 331
 }

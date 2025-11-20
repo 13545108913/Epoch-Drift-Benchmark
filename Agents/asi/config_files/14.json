@@ -1,17 +1,17 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 14,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the the number of reviews that our store received by far that mention term \"{{term}}\"",
+  "intent_template": "Tell me the full names of the repositories where I made contributions and they got {{description}} stars?",
   "instantiation_dict": {
-    "term": "not useful"
+    "description": "the most"
   },
-  "intent": "Tell me the the number of reviews that our store received by far that mention term \"not useful\"",
+  "intent": "Tell me the full names of the repositories where I made contributions and they got the most stars?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -19,13 +19,14 @@
     ],
     "reference_answers": {
       "must_include": [
-        "0"
+        "a11yproject.com",
+        "design"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "0"
+    "reference_answer_raw_annotation": "a11yproject.com, Primer/design"
   },
-  "intent_template_id": 288
+  "intent_template_id": 289
 }

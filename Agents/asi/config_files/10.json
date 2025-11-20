@@ -1,19 +1,19 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 10,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the full address of all {{airport_type}} that are within a driving distance of {{radius}} to {{start}}",
+  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
   "instantiation_dict": {
-    "airport_type": "US international airports",
-    "start": "Niagara Falls",
-    "radius": "60 km"
+    "user": "Eric and Kilian",
+    "repo": "a11yproject",
+    "date": "1/3/2023"
   },
-  "intent": "Tell me the full address of all US international airports that are within a driving distance of 60 km to Niagara Falls",
+  "intent": "How many commits did Eric and Kilian make to a11yproject on 1/3/2023?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -21,14 +21,13 @@
     ],
     "reference_answers": {
       "must_include": [
-        "Niagara Falls International Airport, 2035, Niagara Falls Boulevard, City of Niagara Falls, Town of Wheatfield, Niagara County, New York, 14304, United States",
-        "Buffalo-Niagara International Airport, Holtz Drive, Town of Cheektowaga, Erie County, New York, 14225, United States"
+        "1"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Niagara Falls International Airport, 2035, Niagara Falls Boulevard, City of Niagara Falls, Town of Wheatfield, Niagara County, New York, 14304, United States Buffalo-Niagara International Airport, South Youngs Road, Town of Cheektowaga, Erie County, New York, 14221, United States"
+    "reference_answer_raw_annotation": "1"
   },
-  "intent_template_id": 79
+  "intent_template_id": 322
 }

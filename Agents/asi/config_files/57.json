@@ -1,38 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 57,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the closest {{place1}}(s) to {{place2}}",
+  "intent_template": "Fork {{repo}}.",
   "instantiation_dict": {
-    "place1": "restaurant",
-    "place2": "university center at Carnegie Mellon University"
+    "repo": "2019-nCov"
   },
-  "intent": "Tell me the closest restaurant(s) to university center at Carnegie Mellon University",
+  "intent": "Fork 2019-nCov.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "El Gallo de Oro",
-        "Back Bar Grill",
-        "Grano",
-        "Beefsteak",
-        "Nourish",
-        "Schatz Dining Room",
-        "Au Bon Pain"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "El Gallo de Oro, Back Bar Grill, Grano, Beefsteak, Nourish, Schatz Dining Room, Au Bon Pain"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/2019-nCov",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "2019-nCov"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 69
+  "intent_template_id": 352
 }

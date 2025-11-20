@@ -1,18 +1,18 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 36,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com",
   "geolocation": null,
-  "intent_template": "Check if the {{place}} in pittsburgh can be reached in one hour by car from {{location}}",
+  "intent_template": "How many commits did {{user}} make {{period}}?",
   "instantiation_dict": {
-    "place": "social security administration",
-    "location": "Carnegie Mellon University"
+    "user": "Nic",
+    "period": "in April 2021"
   },
-  "intent": "Check if the social security administration in pittsburgh can be reached in one hour by car from Carnegie Mellon University",
+  "intent": "How many commits did Nic make in April 2021?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -20,13 +20,13 @@
     ],
     "reference_answers": {
       "must_include": [
-        "Yes"
+        "16"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Yes"
+    "reference_answer_raw_annotation": "16"
   },
-  "intent_template_id": 77
+  "intent_template_id": 321
 }

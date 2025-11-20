@@ -1,29 +1,49 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 112,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Show me the customers who have expressed dissatisfaction with {{product}}?",
+  "intent_template": "Add the following users to repo {{repo}} as {{role}}: {{user_list}}",
   "instantiation_dict": {
-    "product": "Circe fleece"
+    "repo": "a11y-webring.club",
+    "role": "developer",
+    "user_list": [
+      "abisubramanya27",
+      "lahwaacz"
+    ]
   },
-  "intent": "Show me the customers who have expressed dissatisfaction with Circe fleece?",
+  "intent": "Add the following users to repo a11y-webring.club as developer: ['abisubramanya27', 'lahwaacz']",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "exact_match": "Hannah Lim"
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Hannah Lim"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/a11y-webring.club/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'abisubramanya27')",
+        "required_contents": {
+          "must_include": [
+            "Developer"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/a11y-webring.club/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'lahwaacz')",
+        "required_contents": {
+          "must_include": [
+            "Developer"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 245
+  "intent_template_id": 351
 }

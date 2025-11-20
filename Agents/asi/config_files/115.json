@@ -1,29 +1,39 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 115,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}",
+  "intent_template": "Add the following users to my {{repo}} as {{role}}: {{user_list}}",
   "instantiation_dict": {
-    "product": "Chloe tank"
+    "repo": "time tracking tool",
+    "role": "guest",
+    "user_list": [
+      "yjlou"
+    ]
   },
-  "intent": "Show me the name of the customers who have expressed dissatisfaction with Chloe tank",
+  "intent": "Add the following users to my time tracking tool as guest: ['yjlou']",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": "N/A"
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "There is no negative review for Chloe tank",
-    "reference_answer_raw_annotation": ""
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/timeit/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'yjlou')",
+        "required_contents": {
+          "must_include": [
+            "Guest"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 245
+  "intent_template_id": 351
 }

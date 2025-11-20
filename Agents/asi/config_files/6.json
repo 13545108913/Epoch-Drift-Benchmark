@@ -1,36 +1,27 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 6,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What are the top-{{n}} best-selling product in {{year}}",
+  "intent_template": "Display the list of issues in the {{repo}} repository that have labels related to {{label}}",
   "instantiation_dict": {
-    "n": 5,
-    "year": 2023
+    "label": "BUG",
+    "repo": "umano/AndroidSlidingUpPanel"
   },
-  "intent": "What are the top-5 best-selling product in 2023",
+  "intent": "Display the list of issues in the umano/AndroidSlidingUpPanel repository that have labels related to BUG",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Sprite Yoga Strap 6 foot",
-        "Overnight Duffle",
-        "Ida Workout Parachute Pant-29-Purple",
-        "Hawkeye Yoga Short-32-Blue",
-        "Sprite Stasis Ball 65 cm"
-      ]
-    },
-    "reference_url": "",
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/umano/AndroidSlidingUpPanel/issues/?label_name%5B%5D=BUG",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Sprite Yoga Strap 6 foot, Overnight Duffle, Ida Workout Parachute Pant-29-Purple, Hawkeye Yoga Short-32-Blue, Sprite Stasis Ball 65 cm"
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 279
+  "intent_template_id": 349
 }

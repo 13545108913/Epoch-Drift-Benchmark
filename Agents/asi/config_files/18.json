@@ -1,33 +1,33 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 18,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Compare the time for walking and driving route from {{start}} to {{end}}",
+  "intent_template": "Open my latest updated issue that has keyword \"{{keyword}}\" in its title to check if it is closed",
   "instantiation_dict": {
-    "start": "AMC Waterfront",
-    "end": "Univ of Pittsburgh"
+    "keyword": "better"
   },
-  "intent": "Compare the time for walking and driving route from AMC Waterfront to Univ of Pittsburgh",
+  "intent": "Open my latest updated issue that has keyword \"better\" in its title to check if it is closed",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "string_match",
+      "url_match"
     ],
     "reference_answers": {
       "fuzzy_match": [
-        "driving: 15min",
-        "walking: 1h 47min"
+        "No, it is open"
       ]
     },
-    "reference_url": "",
+    "reference_url": "http://172.26.116.102:8080/byteblaze/empathy-prompts/issues/8",
     "program_html": [],
+    "reference_answer_raw_annotation": "Not closed",
     "string_note": "",
-    "reference_answer_raw_annotation": "driving: 15min, walking: 1h 47min."
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 73
+  "intent_template_id": 310
 }

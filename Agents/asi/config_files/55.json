@@ -1,32 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 55,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How long does it take to walk from {{start}} to {{end}}?",
+  "intent_template": "Post \"{{content}}\" for the merge request related to {{mr}} in {{repo}} project",
   "instantiation_dict": {
-    "start": "the starbuck near CMU",
-    "end": "Chatham university"
+    "mr": "color ulitity",
+    "repo": "a11yproject.com",
+    "content": "Good idea"
   },
-  "intent": "How long does it take to walk from the starbuck near CMU to Chatham university?",
+  "intent": "Post \"Good idea\" for the merge request related to color ulitity in a11yproject.com project",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "30 min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "30 min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/merge_requests/1071",
+        "locator": "document.querySelector('[id=\"notes-list\"').lastElementChild.querySelector('.timeline-discussion-body').outerText",
+        "required_contents": {
+          "exact_match": "Good idea"
+        }
+      }
+    ]
   },
-  "intent_template_id": 68
+  "intent_template_id": 348
 }

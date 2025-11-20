@@ -1,29 +1,33 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 71,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the zip code of {{place}}?",
+  "intent_template": "Set my gitlab status as {{status}}.",
   "instantiation_dict": {
-    "place": "Chatham University"
+    "status": "Playing Badminton"
   },
-  "intent": "What is the zip code of Chatham University?",
+  "intent": "Set my gitlab status as Playing Badminton.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "exact_match": "15232"
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "15232"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze",
+        "locator": "document.querySelector('.cover-status').lastChild.textContent",
+        "required_contents": {
+          "exact_match": "Playing Badminton"
+        }
+      }
+    ]
   },
-  "intent_template_id": 70
+  "intent_template_id": 361
 }

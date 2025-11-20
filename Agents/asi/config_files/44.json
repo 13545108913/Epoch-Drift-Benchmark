@@ -5,20 +5,30 @@
   "task_id": 44,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Check out my todos",
-  "instantiation_dict": {},
-  "intent": "Check out my todos",
+  "intent_template": "List the {{attribute}} of the top 3 contributors to {{repo}} repo, ranked by the number of commits?",
+  "instantiation_dict": {
+    "repo": "facebook's guide on building react apps",
+    "attribute": "name"
+  },
+  "intent": "List the name of the top 3 contributors to facebook's guide on building react apps repo, ranked by the number of commits?",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "url_match"
+      "string_match"
     ],
-    "reference_answers": null,
-    "reference_url": "http://localhost:8023/dashboard/todos",
+    "reference_answers": {
+      "must_include": [
+        "Ian Sutherland",
+        "Joe Hadda",
+        "Dan Abramov"
+      ]
+    },
+    "reference_url": "",
     "program_html": [],
-    "url_note": "GOLD in PRED"
+    "string_note": "",
+    "reference_answer_raw_annotation": "Ian Sutherland, Joe Hadda, Dan Abramov"
   },
-  "intent_template_id": 303
+  "intent_template_id": 324
 }

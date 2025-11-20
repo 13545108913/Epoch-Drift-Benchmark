@@ -5,23 +5,37 @@
   "task_id": 106,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Display the list of issues in the {{repo}} repository that have labels related to {{label}}",
+  "intent_template": "Follow {{account_list}} on Gitlab",
   "instantiation_dict": {
-    "label": "BUG",
-    "repo": "umano/AndroidSlidingUpPanel"
+    "account_list": [
+      "ghost",
+      "R1kk3r",
+      "Abishek"
+    ]
   },
-  "intent": "Display the list of issues in the umano/AndroidSlidingUpPanel repository that have labels related to BUG",
+  "intent": "Follow ['ghost', 'R1kk3r', 'Abishek'] on Gitlab",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "url_match"
+      "program_html"
     ],
     "reference_answers": null,
-    "reference_url": "http://localhost:8023/umano/AndroidSlidingUpPanel/-/issues/?label_name%5B%5D=BUG",
-    "program_html": [],
-    "url_note": "GOLD in PRED"
+    "reference_url": "",
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/users/byteblaze/following",
+        "locator": "document.querySelector('.user-profile').outerText",
+        "required_contents": {
+          "must_include": [
+            "@lahwaacz",
+            "@R1kk3r",
+            "@abisubramanya27"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 349
+  "intent_template_id": 330
 }

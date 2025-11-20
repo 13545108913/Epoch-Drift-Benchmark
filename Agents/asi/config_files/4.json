@@ -1,34 +1,27 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 4,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What are the top-{{n}} best-selling product in {{period}}",
+  "intent_template": "Display the list of issues in the {{repo}} repository that have labels related to {{label}}",
   "instantiation_dict": {
-    "n": 3,
-    "period": "Jan 2023"
+    "label": "questions",
+    "repo": "kkroening/ffmpeg-python"
   },
-  "intent": "What are the top-3 best-selling product in Jan 2023",
+  "intent": "Display the list of issues in the kkroening/ffmpeg-python repository that have labels related to questions",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Impulse Duffle",
-        "Overnight Duffle",
-        "Hawkeye Yoga Short-32-Blue"
-      ]
-    },
-    "reference_url": "",
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/kkroening/ffmpeg-python/issues/?label_name%5B%5D=question",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Impulse Duffle, Overnight Duffle, Hawkeye Yoga Short-32-Blue"
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 279
+  "intent_template_id": 349
 }

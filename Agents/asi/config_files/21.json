@@ -1,35 +1,30 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 21,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770/6s-wireless-headphones-over-ear-noise-canceling-hi-fi-bass-foldable-stereo-wireless-kid-headsets-earbuds-with-built-in-mic-micro-sd-tf-fm-for-iphone-samsung-ipad-pc-black-gold.html",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "List out reviewers, if exist, who mention about {{description}}",
+  "intent_template": "Open my latest created issue that has {{keyword}} in its title to check if it is closed",
   "instantiation_dict": {
-    "description": "ear cups being small"
+    "keyword": "theme editor"
   },
-  "intent": "List out reviewers, if exist, who mention about ear cups being small",
+  "intent": "Open my latest created issue that has theme editor in its title to check if it is closed",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "string_match",
+      "url_match"
     ],
     "reference_answers": {
-      "must_include": [
-        "Joseph Brzezinski",
-        "Catso",
-        "Dibbins",
-        "Anglebert Dinkherhump",
-        "Michelle Davis"
-      ]
+      "exact_match": "No"
     },
-    "reference_url": "",
+    "reference_url": "http://172.26.116.102:8080/byteblaze/a11y-syntax-highlighting/issues/1",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Joseph Brzezinski, Catso, Dibbins, Anglebert Dinkherhump, Michelle Davis"
+    "reference_answer_raw_annotation": "Not closed",
+    "string_note": ""
   },
-  "intent_template_id": 222
+  "intent_template_id": 500
 }

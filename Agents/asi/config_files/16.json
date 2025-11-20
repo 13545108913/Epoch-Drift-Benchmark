@@ -1,33 +1,40 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 16,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Compare the time for walking and driving route from {{start}} to {{end}}",
+  "intent_template": "Tell me the full names of the repositories where I made contributions and they got {{description}} stars?",
   "instantiation_dict": {
-    "start": "5000 Fifth Avenue, Pittsburgh",
-    "end": "UPMC family health center"
+    "description": "less than 5"
   },
-  "intent": "Compare the time for walking and driving route from 5000 Fifth Avenue, Pittsburgh to UPMC family health center",
+  "intent": "Tell me the full names of the repositories where I made contributions and they got less than 5 stars?",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "fuzzy_match": [
-        "driving: 2min",
-        "walking: 16min"
+      "must_include": [
+        "a11y-syntax-highlighting",
+        "a11y-webring.club",
+        "accessible-html-content-patterns",
+        "ericwbailey.website",
+        "cloud-to-butt",
+        "dotfiles",
+        "timeit",
+        "solarized-prism-theme",
+        "gimmiethat.space",
+        "remove-board-movement-events-from-the-github-issue-timeline"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Driving: 2min. Walking: 16min."
+    "reference_answer_raw_annotation": "a11y-syntax-highlighting, a11y-webring.club, accessible-html-content-patterns, ericwbailey.website, cloud-to-butt, dotfiles, timeit, solarized-prism-theme,  gimmiethat.space, remove-board-movement-events-from-the-github-issue-timeline"
   },
-  "intent_template_id": 73
+  "intent_template_id": 289
 }

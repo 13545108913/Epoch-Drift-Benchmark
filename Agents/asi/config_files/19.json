@@ -1,33 +1,32 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 19,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Compare the time for walking and driving route from {{start}} to {{end}}",
+  "intent_template": "Open my latest updated issue that has keyword \"{{keyword}}\" in its title to check if it is closed",
   "instantiation_dict": {
-    "start": "Carnegie Science Center",
-    "end": "Carnegie Mellon University"
+    "keyword": "theme editor"
   },
-  "intent": "Compare the time for walking and driving route from Carnegie Science Center to Carnegie Mellon University",
+  "intent": "Open my latest updated issue that has keyword \"theme editor\" in its title to check if it is closed",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "string_match",
+      "url_match"
     ],
     "reference_answers": {
       "fuzzy_match": [
-        "driving: 12min",
-        "walking: 1h 44min."
+        "No, it is open"
       ]
     },
-    "reference_url": "",
+    "reference_url": "http://172.26.116.102:8080/byteblaze/a11y-syntax-highlighting/issues/1",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "driving: 12min, walking: 1h 44min."
+    "reference_answer_raw_annotation": "Not closed",
+    "string_note": ""
   },
-  "intent_template_id": 73
+  "intent_template_id": 310
 }

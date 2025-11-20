@@ -1,32 +1,29 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 39,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Check if the {{place}} in pittsburgh can be reached in one hour by car from {{location}}",
+  "intent_template": "Tell me who has made the most contributions, in terms of number of commits, to the {{repo}} project",
   "instantiation_dict": {
-    "place": "walmart",
-    "location": "5600 fifth avenue"
+    "repo": "AndroidSlidingUpPanel"
   },
-  "intent": "Check if the walmart in pittsburgh can be reached in one hour by car from 5600 fifth avenue",
+  "intent": "Tell me who has made the most contributions, in terms of number of commits, to the AndroidSlidingUpPanel project",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "must_include": [
-        "Yes"
-      ]
+      "exact_match": "tokudu"
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Yes"
+    "reference_answer_raw_annotation": "tokudu"
   },
-  "intent_template_id": 77
+  "intent_template_id": 323
 }

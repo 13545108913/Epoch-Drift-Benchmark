@@ -5,23 +5,35 @@
   "task_id": 103,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Display the list of issues in the {{repo}} repository that have labels related to {{label}}",
+  "intent_template": "Follow {{account_list}} on Gitlab",
   "instantiation_dict": {
-    "label": "questions",
-    "repo": "kkroening/ffmpeg-python"
+    "account_list": [
+      "convexegg",
+      "yjlou"
+    ]
   },
-  "intent": "Display the list of issues in the kkroening/ffmpeg-python repository that have labels related to questions",
+  "intent": "Follow ['convexegg', 'yjlou'] on Gitlab",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "url_match"
+      "program_html"
     ],
     "reference_answers": null,
-    "reference_url": "http://localhost:8023/kkroening/ffmpeg-python/-/issues/?label_name%5B%5D=question",
-    "program_html": [],
-    "url_note": "GOLD in PRED"
+    "reference_url": "",
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/users/byteblaze/following",
+        "locator": "document.querySelector('.user-profile').outerText",
+        "required_contents": {
+          "must_include": [
+            "@convexegg",
+            "@yjlou"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 349
+  "intent_template_id": 330
 }

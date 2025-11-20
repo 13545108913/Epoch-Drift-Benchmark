@@ -1,32 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 53,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How long does it take to walk from {{start}} to {{end}}?",
+  "intent_template": "Post \"{{content}}\" for the merge request related to {{mr}} in {{repo}} project",
   "instantiation_dict": {
-    "start": "Univ of Pittsburgh",
-    "end": "starbucks on Craig Street"
+    "mr": "semantic HTML post",
+    "repo": "a11yproject/a11yproject.com",
+    "content": "lgtm"
   },
-  "intent": "How long does it take to walk from Univ of Pittsburgh to starbucks on Craig Street?",
+  "intent": "Post \"lgtm\" for the merge request related to semantic HTML post in a11yproject/a11yproject.com project",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "18 min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "18 min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/merge_requests/1531",
+        "locator": "document.querySelector('[id=\"notes-list\"').lastElementChild.querySelector('.timeline-discussion-body').outerText",
+        "required_contents": {
+          "exact_match": "lgtm"
+        }
+      }
+    ]
   },
-  "intent_template_id": 68
+  "intent_template_id": 348
 }

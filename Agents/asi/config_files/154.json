@@ -1,32 +1,40 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 154,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the minimum travel time by car from {{location1}} to {{location2}}?",
+  "intent_template": "create a new group \"{{name}}\" with members {{members}}",
   "instantiation_dict": {
-    "location1": "CMU gates building",
-    "location2": "Schenley park"
+    "name": "x-lab",
+    "members": "JonasVautherin, dilipchandima, dawiss1337, bmyun, DCMJY"
   },
-  "intent": "What is the minimum travel time by car from CMU gates building to Schenley park?",
+  "intent": "create a new group \"x-lab\" with members JonasVautherin, dilipchandima, dawiss1337, bmyun, DCMJY",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "4min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "4min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/groups/x-lab/group_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@JonasVautherin",
+            "@dilipchandima",
+            "@dawiss1337",
+            "@bmyun",
+            "@DCMJY"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 36
+  "intent_template_id": 600
 }

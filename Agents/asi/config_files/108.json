@@ -1,35 +1,37 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 108,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+  "intent_template": "Invite {{collaborator_account_list}} as collaborator to {{repo}} repo",
   "instantiation_dict": {
-    "period": "01/2023-05/2023"
+    "collaborator_account_list": "Jakub Klinkovsk\u00fd and Beno\u00eet Blanchon",
+    "repo": "gimmiethat.space"
   },
-  "intent": "Presents the monthly count of successful orders 01/2023-05/2023 in MM:COUNT format",
+  "intent": "Invite Jakub Klinkovsk\u00fd and Beno\u00eet Blanchon as collaborator to gimmiethat.space repo",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "January: 12 orders",
-        "Feburary: 7 orders",
-        "March: 5 orders",
-        "April: 9 orders",
-        "May: 5 orders"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "January: 12 orders Febulary: 7 orders March: 5 orders Apirl: 9 orders May: 5 orders"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/gimmiethat.space/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@lahwaacz",
+            "@bblanchon"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 270
+  "intent_template_id": 293
 }

@@ -5,29 +5,42 @@
   "task_id": 134,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
+  "intent_template": "Create a new {{scope}} project \"planner\" and add {{account_list}} as members",
   "instantiation_dict": {
-    "user": "kilian",
-    "repo": "a11yproject",
-    "date": "3/1/2023"
+    "scope": "private",
+    "account_list": "Abishek, Vinta"
   },
-  "intent": "How many commits did kilian make to a11yproject on 3/1/2023?",
+  "intent": "Create a new private project \"planner\" and add Abishek, Vinta as members",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "0"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "0"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/planner",
+        "locator": "document.querySelector('.visibility-icon').getAttribute('title')",
+        "required_contents": {
+          "must_include": [
+            "private"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/planner/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@abisubramanya27",
+            "@vinta"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 322
+  "intent_template_id": 332
 }

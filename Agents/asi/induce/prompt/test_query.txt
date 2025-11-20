@@ -1,10 +1,12 @@
-## Task: Set my gitlab status as {{status}}.
-### Example 1 (419): Set my gitlab status as Enjoying life.
-Clicked the user profile link to access profile settings for updating GitLab status.
-```click("201")```
-Clicked the "Set status" button to open the status setting interface.
-```click("211")```
-Filled the "What's your status?" textbox with "Enjoying life" to set the user status.
-```fill("919", "Enjoying life")```
-Clicked the "Set status" button to save the "Enjoying life" status.
-```click("972")```
+## Task: Assign the issue regarding {{issue}} in {{repo}} repo to {{account}}.
+### Example 1 (164): Assign the issue regarding flash alert in primer design guide repo to myself.
+Searched for the primer design guide repository using the search box to locate the specific project.
+```search_project('142', 'primer design guide')```
+Clicked the "Issues 21" link to navigate to the issues page for the primer design guide repository.
+```click('302')```
+Clicked the issue titled "Clarify usage of flash alert" (#10) to open its detail page for assignment.
+```click('943')```
+Clicked the "assign yourself" button to assign the issue to myself.
+```click('769')```
+Assigned the issue to myself, as confirmed by the activity feed and assignee section showing my name.
+```send_msg_to_user("The issue 'Clarify usage of flash alert' has been successfully assigned to you.")```

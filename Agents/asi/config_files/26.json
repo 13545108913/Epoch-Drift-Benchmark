@@ -1,32 +1,27 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 26,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770/epson-workforce-wf-3620-wifi-direct-all-in-one-color-inkjet-printer-copier-scanner-amazon-dash-replenishment-ready.html",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "List out reviewers, if exist, who mention about {{description}}",
-  "instantiation_dict": {
-    "description": "complain of the customer service"
-  },
-  "intent": "List out reviewers, if exist, who mention about complain of the customer service",
+  "intent_template": "Get me my RSS feed token",
+  "instantiation_dict": {},
+  "intent": "Get me my RSS feed token",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "must_include": [
-        "Bob in Vegas",
-        "RemyR"
-      ]
+      "exact_match": "TMN_bBn9Z48qVbUFZV45"
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Bob in Vegas, RemyRRemyR"
+    "reference_answer_raw_annotation": "TMN_bBn9Z48qVbUFZV45"
   },
-  "intent_template_id": 222
+  "intent_template_id": 312
 }

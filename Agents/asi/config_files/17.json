@@ -1,33 +1,36 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 17,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Compare the time for walking and driving route from {{start}} to {{end}}",
+  "intent_template": "Tell me the full names of the repositories where I made contributions and they got {{description}} stars?",
   "instantiation_dict": {
-    "start": "AMC Waterfront",
-    "end": "Carnegie Mellon University"
+    "description": "no"
   },
-  "intent": "Compare the time for walking and driving route from AMC Waterfront to Carnegie Mellon University",
+  "intent": "Tell me the full names of the repositories where I made contributions and they got no stars?",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "fuzzy_match": [
-        "driving: 13min",
-        "walking: 1h 35min"
+      "must_include": [
+        "cloud-to-butt",
+        "dotfiles",
+        "timeit",
+        "solarized-prism-theme",
+        "gimmiethat.space",
+        "remove-board-movement-events-from-the-github-issue-timeline"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "driving: 13min, walking: 1h 35min."
+    "reference_answer_raw_annotation": "cloud-to-butt, dotfiles, timeit, solarized-prism-theme,  gimmiethat.space, remove-board-movement-events-from-the-github-issue-timeline"
   },
-  "intent_template_id": 73
+  "intent_template_id": 289
 }

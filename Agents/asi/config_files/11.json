@@ -1,17 +1,19 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 11,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the the number of reviews that our store received by far that mention term \"{{term}}\"",
+  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
   "instantiation_dict": {
-    "term": "disappointed"
+    "user": "Steven Woodson",
+    "repo": "a11y-webring.club",
+    "date": "2/6/2023"
   },
-  "intent": "Tell me the the number of reviews that our store received by far that mention term \"disappointed\"",
+  "intent": "How many commits did Steven Woodson make to a11y-webring.club on 2/6/2023?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -19,13 +21,13 @@
     ],
     "reference_answers": {
       "must_include": [
-        "6"
+        "5"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "6"
+    "reference_answer_raw_annotation": "5"
   },
-  "intent_template_id": 288
+  "intent_template_id": 322
 }

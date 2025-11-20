@@ -1,24 +1,37 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 157,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Show all customers",
-  "instantiation_dict": {},
-  "intent": "Show all customers",
+  "intent_template": "create a new group \"{{name}}\" with members {{members}}",
+  "instantiation_dict": {
+    "name": "webagent",
+    "members": "pandey2000, sayakpaul, sayakpaul"
+  },
+  "intent": "create a new group \"webagent\" with members pandey2000, sayakpaul, sayakpaul",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "url_match"
+      "program_html"
     ],
     "reference_answers": null,
-    "reference_url": "http://localhost:7780/admin/customer/index/",
-    "program_html": [],
-    "url_note": "GOLD in PRED"
+    "reference_url": "",
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/groups/webagent/group_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@pandey2000",
+            "@sayakpaul"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 255
+  "intent_template_id": 600
 }

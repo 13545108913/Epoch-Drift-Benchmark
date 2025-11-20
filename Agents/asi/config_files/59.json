@@ -1,32 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 59,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the closest {{place1}}(s) to {{place2}}",
+  "intent_template": "Fork {{repo}}.",
   "instantiation_dict": {
-    "place1": "restaurant",
-    "place2": "CMU Hunt library"
+    "repo": "ChatGPT"
   },
-  "intent": "Tell me the closest restaurant(s) to CMU Hunt library",
+  "intent": "Fork ChatGPT.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "The exchange"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "The exchange"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/ChatGPT",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "ChatGPT"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 69
+  "intent_template_id": 352
 }

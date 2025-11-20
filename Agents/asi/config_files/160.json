@@ -1,26 +1,53 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 160,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "I have a lot of Nintendo Switch game cards now, help me find the best storage option to fit all {{num}} cards",
+  "intent_template": "Submit a merge request for {{source_branch}} branch to be merged into {{target_branch}} branch, assign {{reviewer}} as the reviewer",
   "instantiation_dict": {
-    "num": 6
+    "source_branch": "a11yproject.com/redesign",
+    "target_branch": "markdown-figure-block",
+    "reviewer": "myself"
   },
-  "intent": "I have a lot of Nintendo Switch game cards now, help me find the best storage option to fit all 6 cards",
+  "intent": "Submit a merge request for a11yproject.com/redesign branch to be merged into markdown-figure-block branch, assign myself as the reviewer",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "url_match"
+      "url_match",
+      "program_html"
     ],
     "reference_answers": null,
-    "reference_url": "http://localhost:7770/heiying-game-card-case-for-nintendo-switch-switch-oled-game-card-or-micro-sd-memory-cards-portable-switch-game-memory-card-storage-with-24-game-card-slots-and-24-micro-sd-card-slots-black.html",
-    "program_html": [],
+    "reference_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/merge_requests",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelectorAll(\".detail-page-description > a.gl-font-monospace\")[0].outerText",
+        "required_contents": {
+          "exact_match": "redesign"
+        }
+      },
+      {
+        "url": "last",
+        "locator": "document.querySelectorAll(\".detail-page-description > a.gl-font-monospace\")[1].outerText",
+        "required_contents": {
+          "exact_match": "feature/markdown-figure-block"
+        }
+      },
+      {
+        "url": "last",
+        "locator": "document.querySelector('.block.reviewer').outerText",
+        "required_contents": {
+          "must_include": [
+            "Byte Blaze"
+          ]
+        }
+      }
+    ],
     "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 171
+  "intent_template_id": 335
 }

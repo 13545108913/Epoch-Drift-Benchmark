@@ -1,32 +1,38 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 126,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the price range of {{product}} in the One Stop Market?",
+  "intent_template": "Open an issue to {{issue}} in {{repo}}.",
   "instantiation_dict": {
-    "product": "Canon photo printer"
+    "repo": "awesome-python",
+    "issue": "ask their plans on adding Python 3.11 related resources"
   },
-  "intent": "What is the price range of Canon photo printer in the One Stop Market?",
+  "intent": "Open an issue to ask their plans on adding Python 3.11 related resources in awesome-python.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match",
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "2.56",
-        "649.99"
-      ]
-    },
-    "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "$2.56 - $649.99"
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/vinta/awesome-python/issues",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelector('.detail-page-description').outerText",
+        "required_contents": {
+          "must_include": [
+            "Python 3.11"
+          ]
+        }
+      }
+    ],
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 159
+  "intent_template_id": 328
 }

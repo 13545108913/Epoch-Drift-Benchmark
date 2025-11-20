@@ -1,17 +1,18 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 43,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "List the top {{n}} search terms in my store",
+  "intent_template": "List the {{attribute}} of the top 3 contributors to {{repo}} repo, ranked by the number of commits?",
   "instantiation_dict": {
-    "n": "3"
+    "repo": "Pytorch GAN",
+    "attribute": "email address"
   },
-  "intent": "List the top 3 search terms in my store",
+  "intent": "List the email address of the top 3 contributors to Pytorch GAN repo, ranked by the number of commits?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -19,15 +20,15 @@
     ],
     "reference_answers": {
       "must_include": [
-        "hollister",
-        "Joust Bag",
-        "Antonia Racer Tank"
+        "eriklindernoren@live.se",
+        "eriklindernoren@gmail.com",
+        "pinnacle.chen@qq.com"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "hollister, Joust Bag, Antonia Race Tank"
+    "reference_answer_raw_annotation": "eriklindernoren@live.se, eriklindernoren@gmail.com, pinnacle.chen@qq.com"
   },
-  "intent_template_id": 285
+  "intent_template_id": 324
 }

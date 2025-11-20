@@ -5,29 +5,35 @@
   "task_id": 132,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080/byteblaze/dotfiles",
   "geolocation": null,
-  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
+  "intent_template": "Open a new issue to discuss the implementation of {{feature}}",
   "instantiation_dict": {
-    "user": "kilian",
-    "repo": "a11yproject",
-    "date": "3/5/2023"
+    "feature": "default plugins for .zsh"
   },
-  "intent": "How many commits did kilian make to a11yproject on 3/5/2023?",
+  "intent": "Open a new issue to discuss the implementation of default plugins for .zsh",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match",
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "1"
-      ]
-    },
-    "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "1"
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/byteblaze/dotfiles/issues",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelector('.detail-page-description').outerText",
+        "required_contents": {
+          "must_include": [
+            "implementation",
+            "default plugins",
+            "zsh"
+          ]
+        }
+      }
+    ],
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 322
+  "intent_template_id": 337
 }

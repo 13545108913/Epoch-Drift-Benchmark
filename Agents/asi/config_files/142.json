@@ -1,32 +1,55 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 142,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How much I spent on {{category}} shopping during {{time}}",
+  "intent_template": "Start a private project {{project_name}} with {{template}} template and add {{account_list}} as members",
   "instantiation_dict": {
-    "category": "hair care and hair style",
-    "time": "Jan 2023"
+    "project_name": "agi_index",
+    "template": "HTML",
+    "account_list": "Vinta Chen"
   },
-  "intent": "How much I spent on hair care and hair style shopping during Jan 2023",
+  "intent": "Start a private project agi_index with HTML template and add Vinta Chen as members",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "95.23"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "$95.23"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/agi_index",
+        "locator": "document.querySelector('.visibility-icon').getAttribute('title')",
+        "required_contents": {
+          "must_include": [
+            "Private"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/agi_index",
+        "locator": "document.querySelector('.home-panel-description-markdown').outerText",
+        "required_contents": {
+          "must_include": [
+            "Example plain HTML site using GitLab Pages: https://pages.gitlab.io/plain-html |OR| A plain HTML site that uses Netlify for CI/CD instead of GitLab, but still with all the other great GitLab features."
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/agi_index/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "Vinta Chen"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 162
+  "intent_template_id": 2100
 }

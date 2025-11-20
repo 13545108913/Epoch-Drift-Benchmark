@@ -1,17 +1,17 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 15,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the the number of reviews that our store received by far that mention term \"{{term}}\"",
+  "intent_template": "Tell me the full names of the repositories where I made contributions and they got {{description}} stars?",
   "instantiation_dict": {
-    "term": "best"
+    "description": "the least"
   },
-  "intent": "Tell me the the number of reviews that our store received by far that mention term \"best\"",
+  "intent": "Tell me the full names of the repositories where I made contributions and they got the least stars?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -19,13 +19,18 @@
     ],
     "reference_answers": {
       "must_include": [
-        "2"
+        "cloud-to-butt",
+        "dotfiles",
+        "timeit",
+        "solarized-prism-theme",
+        "gimmiethat.space",
+        "remove-board-movement-events-from-the-github-issue-timeline"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "2"
+    "reference_answer_raw_annotation": "cloud-to-butt, dotfiles, timeit, solarized-prism-theme,  gimmiethat.space, remove-board-movement-events-from-the-github-issue-timeline"
   },
-  "intent_template_id": 288
+  "intent_template_id": 289
 }

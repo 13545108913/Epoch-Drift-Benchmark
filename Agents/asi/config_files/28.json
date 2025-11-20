@@ -1,31 +1,29 @@
 {
   "sites": [
-    "reddit"
+    "gitlab"
   ],
   "task_id": 28,
   "require_login": true,
-  "storage_state": "./.auth/reddit_state.json",
-  "start_url": "http://localhost:9999",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the {{forum}} forum.",
+  "intent_template": "Show me the command to clone {{repo}} with SSH.",
   "instantiation_dict": {
-    "forum": "Worcester"
+    "repo": "ChatGPT"
   },
-  "intent": "Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the Worcester forum.",
+  "intent": "Show me the command to clone ChatGPT with SSH.",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "must_include": [
-        "0"
-      ]
+      "exact_match": "git clone ssh://git@metis.lti.cs.cmu.edu:2222/convexegg/chatgpt.git"
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "0"
+    "reference_answer_raw_annotation": "git clone ssh://git@metis.lti.cs.cmu.edu:2222/convexegg/chatgpt.git"
   },
-  "intent_template_id": 33
+  "intent_template_id": 329
 }

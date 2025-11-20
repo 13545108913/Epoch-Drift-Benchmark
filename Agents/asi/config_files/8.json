@@ -1,33 +1,33 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 8,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the full address of all {{airport_type}} that are within a driving distance of {{radius}} to {{start}}",
+  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
   "instantiation_dict": {
-    "airport_type": "international airports",
-    "start": "Carnegie Mellon University",
-    "radius": "5 km"
+    "user": "Eric",
+    "repo": "a11yproject",
+    "date": "3/2"
   },
-  "intent": "Tell me the full address of all international airports that are within a driving distance of 5 km to Carnegie Mellon University",
+  "intent": "How many commits did Eric make to a11yproject on 3/2?",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "fuzzy_match": [
-        "There is no airport within 5 km of Carnegie Mellon University"
+      "must_include": [
+        "2"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "There is no airport within 5 km of Carnegie Mellon University"
+    "reference_answer_raw_annotation": "2"
   },
-  "intent_template_id": 79
+  "intent_template_id": 322
 }

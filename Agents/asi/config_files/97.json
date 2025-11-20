@@ -1,30 +1,36 @@
 {
   "sites": [
-    "map",
-    "wikipedia"
+    "gitlab"
   ],
   "task_id": 97,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the distance to drive from Carnegie Mellon University to the top computer science school in massachusetts",
-  "instantiation_dict": {},
-  "intent": "Tell me the distance to drive from Carnegie Mellon University to the top computer science school in massachusetts",
+  "intent_template": "Fork {{repo}}.",
+  "instantiation_dict": {
+    "repo": "all repos from facebook"
+  },
+  "intent": "Fork all repos from facebook.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "914km"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "914 km"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/dashboard/projects",
+        "locator": "document.querySelector('[data-qa-selector=\"projects_list\"').outerText",
+        "required_contents": {
+          "must_include": [
+            "create-react-app",
+            "buck"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 120
+  "intent_template_id": 352
 }

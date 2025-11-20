@@ -1,34 +1,33 @@
 {
   "sites": [
-    "reddit"
+    "gitlab"
   ],
   "task_id": 66,
   "require_login": true,
-  "storage_state": "./.auth/reddit_state.json",
-  "start_url": "http://localhost:9999",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Among the top {{number}} post in \"{{subreddit}}\" forum, {{description}}",
+  "intent_template": "Go to the merge request on {{topic}} I have to review, find if the author of the merge request responded at the end, and reply \"Thank you\" if he did. Otherwise remind him with a simple @.",
   "instantiation_dict": {
-    "number": 10,
-    "subreddit": "books",
-    "description": "show me the post URLs that recommand a single book"
+    "topic": "verification functions"
   },
-  "intent": "Among the top 10 post in \"books\" forum, show me the post URLs that recommand a single book",
+  "intent": "Go to the merge request on verification functions I have to review, find if the author of the merge request responded at the end, and reply \"Thank you\" if he did. Otherwise remind him with a simple @.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "http://localhost:9999/f/books/59396/apple-books-has-a-free-audiobook-of-a-christmas-carol",
-        "http://localhost:9999/f/books/17445/i-just-finished-reading-the-hobbit-to-my-6-year-old-daughter"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "http://localhost:9999/f/books/59396/apple-books-has-a-free-audiobook-of-a-christmas-carol, http://localhost:9999/f/books/17445/i-just-finished-reading-the-hobbit-to-my-6-year-old-daughter"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/a11y-webring.club/merge_requests/40",
+        "locator": "document.querySelector('[id=\"notes-list\"').lastElementChild.querySelector('.timeline-discussion-body').outerText",
+        "required_contents": {
+          "exact_match": "@davepgreene"
+        }
+      }
+    ]
   },
-  "intent_template_id": 17
+  "intent_template_id": 360
 }

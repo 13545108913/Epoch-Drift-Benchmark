@@ -1,33 +1,36 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 63,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Which customer(s) has completed the {{quantifier}} number of orders in the entire history?",
+  "intent_template": "Make the LICENSE of {{repo}} to Apache License",
   "instantiation_dict": {
-    "quantifier": "second most"
+    "repo": "byteblaze/accessible-html-content-patterns"
   },
-  "intent": "Which customer(s) has completed the second most number of orders in the entire history?",
+  "intent": "Make the LICENSE of byteblaze/accessible-html-content-patterns to Apache License",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Adam Garcia",
-        "Michael Nguyen",
-        "Sarah Miller"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Adam Garcia, Michael Nguyen, Sarah Miller"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/accessible-html-content-patterns/blob/main/LICENSE",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "Apache License",
+            "http://www.apache.org/licenses/LICENSE-2.0"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 276
+  "intent_template_id": 355
 }

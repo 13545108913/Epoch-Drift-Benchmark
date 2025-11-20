@@ -1,37 +1,42 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 99,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Where is the nearest {{places}} to {{start}}, and what is the walking distance to it?",
+  "intent_template": "Star the top {{number}} most stared repos in Gitlab",
   "instantiation_dict": {
-    "places": "Five Guys",
-    "start": "5700 Penn Ave"
+    "number": "eight"
   },
-  "intent": "Where is the nearest Five Guys to 5700 Penn Ave, and what is the walking distance to it?",
+  "intent": "Star the top eight most stared repos in Gitlab",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Five Guys",
-        "117",
-        "South Bouquet Street",
-        "North Oakland",
-        "Pittsburgh",
-        "4.0km"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Five Guys, 117, South Bouquet Street, Oakland, North Oakland, Pittsburgh, Allegheny County, Pennsylvania, 15213, United States\n4.0km"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/users/byteblaze/starred",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "AndroidSlidingUpPanel",
+            "create-react-app",
+            "ffmpeg-python",
+            "PHP_XLSXWriter",
+            "AndroidAsync",
+            "Pytorch-GAN",
+            "administrate",
+            "keycloak"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 66
+  "intent_template_id": 354
 }

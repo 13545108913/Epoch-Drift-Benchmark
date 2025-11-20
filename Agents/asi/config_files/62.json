@@ -1,31 +1,35 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 62,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Which customer has completed the {{quantifier}} number of orders in the entire history?",
+  "intent_template": "Make the LICENSE of {{repo}} to MIT license.",
   "instantiation_dict": {
-    "quantifier": "most"
+    "repo": "byteblaze/cloud-to-butt"
   },
-  "intent": "Which customer has completed the most number of orders in the entire history?",
+  "intent": "Make the LICENSE of byteblaze/cloud-to-butt to MIT license.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Jane Smith"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Jane Smith"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/cloud-to-butt/blob/master/LICENSE.txt",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "MIT license"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 276
+  "intent_template_id": 355
 }

@@ -1,20 +1,18 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 32,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com",
   "geolocation": null,
-  "intent_template": "I will arrive {{place}} soon. Provide the name of a {{target1}} in the vicinity, if available. Then, tell me the {{information}} to {{target2}} from the hotel.",
+  "intent_template": "How many commits did {{user}} make {{period}}?",
   "instantiation_dict": {
-    "place": "Pittsburgh Airport",
-    "information": "the walking distance",
-    "target1": "Hilton hotel",
-    "target2": "the nearest supermarket own by a local company"
+    "user": "Kilian",
+    "period": "durning 2023"
   },
-  "intent": "I will arrive Pittsburgh Airport soon. Provide the name of a Hilton hotel in the vicinity, if available. Then, tell me the the walking distance to the nearest supermarket own by a local company from the hotel.",
+  "intent": "How many commits did Kilian make durning 2023?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -22,14 +20,13 @@
     ],
     "reference_answers": {
       "must_include": [
-        "DoubleTree by Hilton Hotel Pittsburgh Airport",
-        "2.0km"
+        "1"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "DoubleTree by Hilton Hotel Pittsburgh Airport Distance: 2.0km"
+    "reference_answer_raw_annotation": "1"
   },
-  "intent_template_id": 78
+  "intent_template_id": 321
 }

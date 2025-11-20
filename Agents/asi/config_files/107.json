@@ -1,38 +1,45 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 107,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+  "intent_template": "Follow {{account_list}} on Gitlab",
   "instantiation_dict": {
-    "period": "from May to December 2022"
+    "account_list": [
+      "Jakub Klinkovsk",
+      "convexegg",
+      "Vinta Chen",
+      "yjlou",
+      "Abishek S"
+    ]
   },
-  "intent": "Presents the monthly count of successful orders from May to December 2022 in MM:COUNT format",
+  "intent": "Follow ['Jakub Klinkovsk', 'convexegg', 'Vinta Chen', 'yjlou', 'Abishek S'] on Gitlab",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "May: 8 orders",
-        "June: 13 orders",
-        "July: 9 orders",
-        "August: 8 orders",
-        "Sepetember: 10 orders",
-        "October: 4 orders",
-        "November: 5 orders",
-        "December: 10 orders"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "May: 8 orders June: 13 orders July: 9 orders August: 8 orders Sepetember: 10 orders Octorbor: 4 orders November: 5 orders December: 10 orders  "
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/users/byteblaze/following",
+        "locator": "document.querySelector('.user-profile').outerText",
+        "required_contents": {
+          "must_include": [
+            "@lahwaacz",
+            "@convexegg",
+            "@vinta",
+            "@yjlou",
+            "@abisubramanya27"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 270
+  "intent_template_id": 330
 }

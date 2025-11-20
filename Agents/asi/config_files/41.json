@@ -1,29 +1,29 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 41,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "List the top {{n}} search terms in my store",
+  "intent_template": "Tell me who has made the most contributions, in terms of number of commits, to the {{repo}} project",
   "instantiation_dict": {
-    "n": "1"
+    "repo": "csvkit"
   },
-  "intent": "List the top 1 search terms in my store",
+  "intent": "Tell me who has made the most contributions, in terms of number of commits, to the csvkit project",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "exact_match": "hollister"
+      "exact_match": "Christopher Groskopf"
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "hollister"
+    "reference_answer_raw_annotation": "Christopher Groskopf"
   },
-  "intent_template_id": 285
+  "intent_template_id": 323
 }

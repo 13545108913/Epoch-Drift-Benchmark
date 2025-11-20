@@ -5,29 +5,41 @@
   "task_id": 136,
   "require_login": true,
   "storage_state": "./.auth/gitlab_state.json",
-  "start_url": "http://localhost:8023",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How many commits did {{user}} make to {{repo}} on {{date}}?",
+  "intent_template": "Create a new {{scope}} project \"AutoAGI\" and add {{account_list}} as members",
   "instantiation_dict": {
-    "user": "Steven Woodson",
-    "repo": "a11y-webring.club",
-    "date": "2/6/2023"
+    "scope": "public",
+    "account_list": "primer"
   },
-  "intent": "How many commits did Steven Woodson make to a11y-webring.club on 2/6/2023?",
+  "intent": "Create a new public project \"AutoAGI\" and add primer as members",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "5"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "5"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/AutoAGI",
+        "locator": "document.querySelector('.visibility-icon').getAttribute('title')",
+        "required_contents": {
+          "must_include": [
+            "public"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/AutoAGI/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@primer"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 322
+  "intent_template_id": 332
 }

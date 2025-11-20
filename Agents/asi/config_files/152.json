@@ -1,32 +1,30 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 152,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the minimum travel time by car from {{location1}} to {{location2}}?",
+  "intent_template": "Create an issue {{issue}} in {{repo}}.",
   "instantiation_dict": {
-    "location1": "Schenley park",
-    "location2": "Upitt"
+    "repo": "huggingface dataset",
+    "issue": "asking about do they have any plan on supporting Webagent in the next quater"
   },
-  "intent": "What is the minimum travel time by car from Schenley park to Upitt?",
+  "intent": "Create an issue asking about do they have any plan on supporting Webagent in the next quater in huggingface dataset.",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "fuzzy_match": [
-        "4min"
-      ]
+      "fuzzy_match": "N/A"
     },
     "reference_url": "",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "4min"
+    "string_note": "huggingface repo does not exist",
+    "reference_answer_raw_annotation": "N/A"
   },
-  "intent_template_id": 36
+  "intent_template_id": 328
 }

@@ -88,7 +88,8 @@ def run_asi():
             "python", "run_demo.py",
             "--task_name", f"myBenchmark.{tid}",
             "--websites", args.website,
-            "--rename_to", f"myBenchmark.{tid}"
+            "--rename_to", f"myBenchmark.{tid}",
+            "--headless"
         ])
         try:
             stdout, stderr = process.communicate(timeout=3000)

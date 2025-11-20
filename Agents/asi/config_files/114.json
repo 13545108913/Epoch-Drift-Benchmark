@@ -1,32 +1,49 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 114,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Show me the customers who have expressed dissatisfaction with {{product}}?",
+  "intent_template": "Add the following users to repo {{repo}} as {{role}}: {{user_list}}",
   "instantiation_dict": {
-    "product": "Antonia racer tank"
+    "repo": "millennials-to-snake-people",
+    "role": "reporter",
+    "user_list": [
+      "yjlou",
+      "a11yproject"
+    ]
   },
-  "intent": "Show me the customers who have expressed dissatisfaction with Antonia racer tank?",
+  "intent": "Add the following users to repo millennials-to-snake-people as reporter: ['yjlou', 'a11yproject']",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Shaunte",
-        "Merrie"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Shaunte, Merrie"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/millennials-to-snake-people/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'yjlou')",
+        "required_contents": {
+          "must_include": [
+            "Reporter"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/millennials-to-snake-people/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'a11yproject')",
+        "required_contents": {
+          "must_include": [
+            "Reporter"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 245
+  "intent_template_id": 351
 }

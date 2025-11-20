@@ -1,20 +1,18 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 34,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com",
   "geolocation": null,
-  "intent_template": "I will arrive {{place}} soon. Provide the name of a {{target1}} in the vicinity, if available. Then, tell me the {{information}} to {{target2}} from the hotel.",
+  "intent_template": "How many commits did {{user}} make {{period}}?",
   "instantiation_dict": {
-    "place": "Pittsburgh Airport",
-    "target1": "Hyatt hotel",
-    "information": "the shortest walking time",
-    "target2": "a supermarket"
+    "user": "Philip",
+    "period": "in 2023/1"
   },
-  "intent": "I will arrive Pittsburgh Airport soon. Provide the name of a Hyatt hotel in the vicinity, if available. Then, tell me the the shortest walking time to a supermarket from the hotel.",
+  "intent": "How many commits did Philip make in 2023/1?",
   "require_reset": false,
   "eval": {
     "eval_types": [
@@ -22,16 +20,13 @@
     ],
     "reference_answers": {
       "must_include": [
-        "Hyatt Regency Pittsburgh International Airport"
-      ],
-      "fuzzy_match": [
-        "Time: 3h 30min"
+        "0"
       ]
     },
     "reference_url": "",
     "program_html": [],
     "string_note": "",
-    "reference_answer_raw_annotation": "Hyatt Regency Pittsburgh International Airport\n3:30"
+    "reference_answer_raw_annotation": "0"
   },
-  "intent_template_id": 78
+  "intent_template_id": 321
 }

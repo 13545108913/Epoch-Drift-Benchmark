@@ -1,31 +1,38 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 131,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/byteblaze/solarized-prism-theme",
   "geolocation": null,
-  "intent_template": "What's the total number of items sold in the most recent {{k}} orders?",
+  "intent_template": "Open a new issue to discuss the implementation of {{feature}}",
   "instantiation_dict": {
-    "k": "7"
+    "feature": "dark mode"
   },
-  "intent": "What's the total number of items sold in the most recent 7 orders?",
+  "intent": "Open a new issue to discuss the implementation of dark mode",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match",
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "25"
-      ]
-    },
-    "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "25"
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/byteblaze/solarized-prism-theme/issues",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelector('.detail-page-description').outerText",
+        "required_contents": {
+          "must_include": [
+            "implementation",
+            "dark mode"
+          ]
+        }
+      }
+    ],
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 1002
+  "intent_template_id": 337
 }

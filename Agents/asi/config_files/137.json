@@ -1,32 +1,47 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 137,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the estimated driving time between {{city1}} and {{city2}}?",
+  "intent_template": "Create a new {{scope}} project \"awesome-llms\" and add {{account_list}} as members",
   "instantiation_dict": {
-    "city1": "the city where the Liberty Bell is located",
-    "city2": "the home city of Pirates"
+    "scope": "public",
+    "account_list": "primer, convexegg, abishek"
   },
-  "intent": "What is the estimated driving time between the city where the Liberty Bell is located and the home city of Pirates?",
+  "intent": "Create a new public project \"awesome-llms\" and add primer, convexegg, abishek as members",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "5h 47min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "5h 47min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/awesome-llms",
+        "locator": "document.querySelector('.visibility-icon').getAttribute('title')",
+        "required_contents": {
+          "must_include": [
+            "public"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/awesome-llms/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@primer",
+            "@convexegg",
+            "@abisubramanya27"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 51
+  "intent_template_id": 332
 }

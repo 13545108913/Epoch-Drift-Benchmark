@@ -1,29 +1,32 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 24,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770/haflinger-men-s-wool-felt-open-back-slippers-beige-550-peat-us-7.html",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com",
   "geolocation": null,
-  "intent_template": "List out reviewers, if exist, who mention about {{description}}",
+  "intent_template": "How many commits did {{user}} make on {{date}} in total?",
   "instantiation_dict": {
-    "description": "price being unfair"
+    "user": "Eric and Kilian",
+    "date": "1/3/2023"
   },
-  "intent": "List out reviewers, if exist, who mention about price being unfair",
+  "intent": "How many commits did Eric and Kilian make on 1/3/2023 in total?",
   "require_reset": false,
   "eval": {
     "eval_types": [
       "string_match"
     ],
     "reference_answers": {
-      "fuzzy_match": "N/A"
+      "must_include": [
+        "1"
+      ]
     },
     "reference_url": "",
     "program_html": [],
-    "string_note": "There is no reivew about price being unfair",
-    "reference_answer_raw_annotation": "N/A"
+    "string_note": "",
+    "reference_answer_raw_annotation": "1"
   },
-  "intent_template_id": 222
+  "intent_template_id": 320
 }

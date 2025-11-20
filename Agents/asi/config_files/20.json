@@ -1,33 +1,30 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 20,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Compare the difference in time for walking and driving route from {{start}} to {{end}}",
+  "intent_template": "Open my latest created issue that has {{keyword}} in its title to check if it is closed",
   "instantiation_dict": {
-    "start": "Randyland",
-    "end": "Carnegie Mellon University"
+    "keyword": "better"
   },
-  "intent": "Compare the difference in time for walking and driving route from Randyland to Carnegie Mellon University",
+  "intent": "Open my latest created issue that has better in its title to check if it is closed",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "string_match",
+      "url_match"
     ],
     "reference_answers": {
-      "fuzzy_match": [
-        "driving: 13min",
-        "walking: 1h 45min"
-      ]
+      "exact_match": "Yes"
     },
-    "reference_url": "",
+    "reference_url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/issues/566",
     "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "driving: 13min, walking: 1h 45min."
+    "reference_answer_raw_annotation": "Closed",
+    "string_note": ""
   },
-  "intent_template_id": 73
+  "intent_template_id": 500
 }

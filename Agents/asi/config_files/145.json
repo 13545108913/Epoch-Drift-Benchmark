@@ -1,32 +1,45 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 145,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How much I spent on {{category}} shopping during {{time}}",
+  "intent_template": "Create a private {{template}} repository called \"{{project_name}}\" using the right template to speed up development.",
   "instantiation_dict": {
-    "category": "cooking and food",
-    "time": "March 2022"
+    "project_name": "web_agent_android_xs",
+    "template": "Android"
   },
-  "intent": "How much I spent on cooking and food shopping during March 2022",
+  "intent": "Create a private Android repository called \"web_agent_android_xs\" using the right template to speed up development.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "52.35"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "$52.35"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/web_agent_android_xs",
+        "locator": "document.querySelector('.visibility-icon').getAttribute('title')",
+        "required_contents": {
+          "must_include": [
+            "Private"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/web_agent_android_xs/commits",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "Initialized from 'Android' project template"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 162
+  "intent_template_id": 332
 }

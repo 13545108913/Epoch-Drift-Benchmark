@@ -1,32 +1,39 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 155,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the minimum travel time by car from {{location1}} to {{location2}}?",
+  "intent_template": "create a new group \"{{name}}\" with members {{members}}",
   "instantiation_dict": {
-    "location1": "Animal Rescue League of Pittsburgh",
-    "location2": "Schenley park"
+    "name": "crew",
+    "members": "ASWATFZLLC, patrickhlauke, westurner, linkmatrix"
   },
-  "intent": "What is the minimum travel time by car from Animal Rescue League of Pittsburgh to Schenley park?",
+  "intent": "create a new group \"crew\" with members ASWATFZLLC, patrickhlauke, westurner, linkmatrix",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "9min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "9min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/groups/crew/group_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "@ASWATFZLLC",
+            "@patrickhlauke",
+            "@westurner",
+            "@linkmatrix"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 36
+  "intent_template_id": 600
 }

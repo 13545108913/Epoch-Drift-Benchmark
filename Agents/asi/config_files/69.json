@@ -1,33 +1,33 @@
 {
   "sites": [
-    "reddit"
+    "gitlab"
   ],
   "task_id": 69,
   "require_login": true,
-  "storage_state": "./.auth/reddit_state.json",
-  "start_url": "http://localhost:9999",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Among the top {{number}} post in \"{{subreddit}}\" forum, {{description}}",
+  "intent_template": "Set my gitlab status as {{status}}.",
   "instantiation_dict": {
-    "number": 10,
-    "subreddit": "books",
-    "description": "is there any post talks about supporting local book stores? If so, tell me the organizations involved"
+    "status": "Busy"
   },
-  "intent": "Among the top 10 post in \"books\" forum, is there any post talks about supporting local book stores? If so, tell me the organizations involved",
+  "intent": "Set my gitlab status as Busy.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "bookshop.org"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "bookshop.org"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze",
+        "locator": "document.querySelector('.cover-status').lastChild.textContent",
+        "required_contents": {
+          "exact_match": "Busy"
+        }
+      }
+    ]
   },
-  "intent_template_id": 17
+  "intent_template_id": 361
 }

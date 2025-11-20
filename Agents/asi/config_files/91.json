@@ -1,35 +1,36 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 91,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Which US states border {{state}}?",
+  "intent_template": "Invite {{collaborator_account_list}} as collaborator to {{repo}}",
   "instantiation_dict": {
-    "state": "Massachusetts"
+    "collaborator_account_list": "yjlou",
+    "repo": "solarized-prism-theme"
   },
-  "intent": "Which US states border Massachusetts?",
+  "intent": "Invite yjlou as collaborator to solarized-prism-theme",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Rhode Island",
-        "Connecticut",
-        "New York",
-        "New Hampshire",
-        "Vermont"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Rhode Island, Connecticut, New York, New Hampshire, Vermont"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/solarized-prism-theme/project_members",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "yjlou"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 67
+  "intent_template_id": 293
 }

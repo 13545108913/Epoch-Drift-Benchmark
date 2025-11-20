@@ -1,32 +1,71 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 61,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the closest {{place1}}(s) to {{place2}}",
+  "intent_template": "Fork {{repo}}.",
   "instantiation_dict": {
-    "place1": "restaurant",
-    "place2": "CMU Sorrells Library"
+    "repo": "all source repos from Akilesh Kannan"
   },
-  "intent": "Tell me the closest restaurant(s) to CMU Sorrells Library",
+  "intent": "Fork all source repos from Akilesh Kannan",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "La Prima Espresso"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "La Prima Espresso"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/SimCache",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "SimCache"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/dots",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "dots"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/CacheEval",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "CacheEval"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/nvidia-patch",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "404"
+          ]
+        }
+      },
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/viewgrades-scraper",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "404"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 69
+  "intent_template_id": 352
 }

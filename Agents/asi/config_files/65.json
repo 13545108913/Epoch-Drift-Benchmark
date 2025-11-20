@@ -1,31 +1,36 @@
 {
   "sites": [
-    "shopping_admin"
+    "gitlab"
   ],
   "task_id": 65,
   "require_login": true,
-  "storage_state": "./.auth/shopping_admin_state.json",
-  "start_url": "http://localhost:7780/admin",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Which customer has completed the {{quantifier}} number of orders in the entire history?",
+  "intent_template": "Make the LICENSE of {{repo}} to MIT license.",
   "instantiation_dict": {
-    "quantifier": "fifth most"
+    "repo": "byteblaze/dotfiles"
   },
-  "intent": "Which customer has completed the fifth most number of orders in the entire history?",
+  "intent": "Make the LICENSE of byteblaze/dotfiles to MIT license.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "Jane Doe"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "Jane Doe"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/dotfiles/blob/main/LICENSE",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "MIT license",
+            "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software."
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 276
+  "intent_template_id": 355
 }

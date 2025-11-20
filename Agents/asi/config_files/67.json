@@ -1,34 +1,33 @@
 {
   "sites": [
-    "reddit"
+    "gitlab"
   ],
   "task_id": 67,
   "require_login": true,
-  "storage_state": "./.auth/reddit_state.json",
-  "start_url": "http://localhost:9999",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Among the top {{number}} post in \"{{subreddit}}\" forum, {{description}}",
+  "intent_template": "Go to the merge request on {{topic}} I have to review, find if the author of the merge request responded at the end, and reply \"Thank you\" if he did. Otherwise remind him with a simple @.",
   "instantiation_dict": {
-    "number": 10,
-    "subreddit": "books",
-    "description": "show me the book names from posts that recommand a single book"
+    "topic": "wcag"
   },
-  "intent": "Among the top 10 post in \"books\" forum, show me the book names from posts that recommand a single book",
+  "intent": "Go to the merge request on wcag I have to review, find if the author of the merge request responded at the end, and reply \"Thank you\" if he did. Otherwise remind him with a simple @.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "A Christmas Carol",
-        "The Hobbit"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "A Christmas Carol, The Hobbit"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/a11yproject/a11yproject.com/merge_requests/1270",
+        "locator": "document.querySelector('[id=\"notes-list\"').lastElementChild.querySelector('.timeline-discussion-body').outerText",
+        "required_contents": {
+          "exact_match": "Thank you"
+        }
+      }
+    ]
   },
-  "intent_template_id": 17
+  "intent_template_id": 360
 }

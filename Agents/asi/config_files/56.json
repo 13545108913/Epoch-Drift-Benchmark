@@ -1,32 +1,35 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 56,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How long does it take to walk from {{start}} to {{end}}?",
+  "intent_template": "Post \"{{content}}\" for the merge request related to {{mr}} in {{repo}} project",
   "instantiation_dict": {
-    "start": "Carnegie Museum of Art",
-    "end": "a library at CMU"
+    "mr": "fixing the broken links",
+    "repo": "byteblaze/empathy-prompts",
+    "content": "lgtm"
   },
-  "intent": "How long does it take to walk from Carnegie Museum of Art to a library at CMU?",
+  "intent": "Post \"lgtm\" for the merge request related to fixing the broken links in byteblaze/empathy-prompts project",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "11 min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "11 min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/empathy-prompts/merge_requests/19",
+        "locator": "document.querySelector('[id=\"notes-list\"').lastElementChild.querySelector('.timeline-discussion-body').outerText",
+        "required_contents": {
+          "exact_match": "lgtm"
+        }
+      }
+    ]
   },
-  "intent_template_id": 68
+  "intent_template_id": 348
 }

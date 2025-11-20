@@ -1,32 +1,37 @@
 {
   "sites": [
-    "map"
+    "gitlab"
   ],
   "task_id": 52,
   "require_login": true,
-  "storage_state": null,
-  "start_url": "http://localhost:3000",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "How long does it take to walk from {{start}} to {{end}}?",
+  "intent_template": "Post \"{{content}}\" for the merge request related to {{mr}} in {{repo}} project",
   "instantiation_dict": {
-    "start": "Carnegie Mellon University",
-    "end": "starbucks on Craig Street"
+    "mr": "octovisuals page",
+    "repo": "primer/design",
+    "content": "Thanks, working on reviews"
   },
-  "intent": "How long does it take to walk from Carnegie Mellon University to starbucks on Craig Street?",
+  "intent": "Post \"Thanks, working on reviews\" for the merge request related to octovisuals page in primer/design project",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "7 min"
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "7 min"
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/primer/design/merge_requests/450",
+        "locator": "",
+        "required_contents": {
+          "must_include": [
+            "Thanks, working on reviews"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 68
+  "intent_template_id": 348
 }

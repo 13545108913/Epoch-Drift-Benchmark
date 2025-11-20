@@ -1,32 +1,38 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 124,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the price range of {{product}} in the One Stop Market?",
+  "intent_template": "Open an issue to {{issue}} in {{repo}}.",
   "instantiation_dict": {
-    "product": "wireless earphone"
+    "repo": "ChatGPT",
+    "issue": "report the issue of connection refused"
   },
-  "intent": "What is the price range of wireless earphone in the One Stop Market?",
+  "intent": "Open an issue to report the issue of connection refused in ChatGPT.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match",
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "0.14",
-        "745.00"
-      ]
-    },
-    "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "$0.14 - $745.00"
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/convexegg/chatgpt/issues",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelector('.detail-page-description').outerText",
+        "required_contents": {
+          "must_include": [
+            "connection refused"
+          ]
+        }
+      }
+    ],
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 159
+  "intent_template_id": 328
 }

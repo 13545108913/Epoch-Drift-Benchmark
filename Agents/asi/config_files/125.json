@@ -1,32 +1,38 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 125,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "What is the price range of {{product}} in the One Stop Market?",
+  "intent_template": "Open an issue to {{issue}} in {{repo}}.",
   "instantiation_dict": {
-    "product": "teeth grinding mouth guard"
+    "repo": "aem-hacker",
+    "issue": "report experiencing \"OSError: [Errno 98] Address already in use\" during executions"
   },
-  "intent": "What is the price range of teeth grinding mouth guard in the One Stop Market?",
+  "intent": "Open an issue to report experiencing \"OSError: [Errno 98] Address already in use\" during executions in aem-hacker.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "url_match",
+      "program_html"
     ],
-    "reference_answers": {
-      "must_include": [
-        "1.46",
-        "85"
-      ]
-    },
-    "reference_url": "",
-    "program_html": [],
-    "string_note": "",
-    "reference_answer_raw_annotation": "$1.46 - $85"
+    "reference_answers": null,
+    "reference_url": "http://172.26.116.102:8080/0ang3el/aem-hacker/issues",
+    "program_html": [
+      {
+        "url": "last",
+        "locator": "document.querySelector('.detail-page-description').outerText",
+        "required_contents": {
+          "must_include": [
+            "OSError: [Errno 98] Address already in use"
+          ]
+        }
+      }
+    ],
+    "url_note": "GOLD in PRED"
   },
-  "intent_template_id": 159
+  "intent_template_id": 328
 }

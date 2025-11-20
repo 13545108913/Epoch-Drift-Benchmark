@@ -1,29 +1,35 @@
 {
   "sites": [
-    "shopping"
+    "gitlab"
   ],
   "task_id": 96,
   "require_login": true,
-  "storage_state": "./.auth/shopping_state.json",
-  "start_url": "http://localhost:7770",
+  "storage_state": "./.auth/gitlab_state.json",
+  "start_url": "http://172.26.116.102:8080",
   "geolocation": null,
-  "intent_template": "Tell me the status of my latest order and when will it arrive",
-  "instantiation_dict": {},
-  "intent": "Tell me the status of my latest order and when will it arrive",
+  "intent_template": "{{name}} wants to check my dotfile configurations. Please invite him to the repo as a guest.",
+  "instantiation_dict": {
+    "name": "Vinta"
+  },
+  "intent": "Vinta wants to check my dotfile configurations. Please invite him to the repo as a guest.",
   "require_reset": false,
   "eval": {
     "eval_types": [
-      "string_match"
+      "program_html"
     ],
-    "reference_answers": {
-      "fuzzy_match": [
-        "The last order was canceled. It will never arrive."
-      ]
-    },
+    "reference_answers": null,
     "reference_url": "",
-    "program_html": [],
-    "reference_answer_raw_annotation": "The last order was canceled. It will never arrive.",
-    "string_note": ""
+    "program_html": [
+      {
+        "url": "http://172.26.116.102:8080/byteblaze/dotfiles/project_members",
+        "locator": "func:gitlab_get_project_memeber_role(__page__, 'vinta')",
+        "required_contents": {
+          "must_include": [
+            "Guest"
+          ]
+        }
+      }
+    ]
   },
-  "intent_template_id": 193
+  "intent_template_id": 294
 }
