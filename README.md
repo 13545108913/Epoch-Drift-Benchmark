@@ -66,7 +66,7 @@ Password: zlxQGkIhkgLcnGpsJyMRjAGdPhKP75k2mscZZJm6b+A=
 
 ## 设置环境变量：
 ```bash
-$env:BASE_URL="http://localhost"              
+$env:BASE_URL="http://172.26.116.102"              
 $env:WA_SHOPPING="http://localhost:7770/"
 $env:WA_SHOPPING_ADMIN="http://localhost:7780/admin"
 $env:WA_REDDIT="http://localhost:9999"
@@ -89,11 +89,11 @@ $env:WA_GITLAB_V2="http://localhost:8080"
 ```
 
 ```bash
-ASE_URL="http://localhost"                                                                                     
+BASE_URL="http://172.26.116.102"                                                                                     
 export WA_SHOPPING="$BASE_URL:7770/"
 export WA_SHOPPING_ADMIN="$BASE_URL:7780/admin"
 export WA_REDDIT="$BASE_URL:9999"
-export WA_GITLAB="$BASE_URL:8023"
+export WA_GITLAB="$BASE_URL:8080"
 export WA_WIKIPEDIA="$BASE_URL:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
 export WA_MAP="$BASE_URL:3000"
 export WA_HOMEPAGE="$BASE_URL:4399"
@@ -101,17 +101,17 @@ export WA_HOMEPAGE="$BASE_URL:4399"
 export SHOPPING="$BASE_URL:7770/"
 export SHOPPING_ADMIN="$BASE_URL:7780/admin"
 export REDDIT="$BASE_URL:9999"
-export GITLAB="$BASE_URL:8023"
+export GITLAB="$BASE_URL:8080"
 export WIKIPEDIA="$BASE_URL:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
 export MAP="$BASE_URL:3000"
 export HOMEPAGE="$BASE_URL:4399"
 
-export WA_GITLAB_V1="$BASE_URL:8023"
-export WA_GITLAB_V2="$BASE_URL:8023"
+export WA_GITLAB_V1="$BASE_URL:8080"
+export WA_GITLAB_V2="$BASE_URL:8080"
 ```
 
 ## 运行方式
 ```bash
-python run_demo.py --task_name myBenchmark.419
+python run_demo.py --task_name myBenchmark.419 --websites gitlab
 python run_online.py --experiment asi --website gitlab --task_ids 419-419
 ```
